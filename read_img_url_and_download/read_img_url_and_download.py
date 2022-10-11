@@ -1,5 +1,6 @@
 import requests
 import sys
+import os
 
 
 def grab_img_by_url_from_file(file_path):
@@ -20,6 +21,9 @@ def grab_img_by_url_from_file(file_path):
 
 
 def download_img(img_data, img_url):
+    imgs_directory_path = "imgs"
+    os.mkdir(imgs_directory_path)
+    os.path.exists(imgs_directory_path)
     img_filename = img_url.split("/")[-1]
     with open("imgs/" + img_filename, 'wb') as handler:
         handler.write(img_data)
